@@ -1,0 +1,28 @@
+<button class="buttonFetchUsers" (click)="fetchUsers()">fetchUsers</button>
+<div  *ngIf="data else loading">
+  <div class="user-details" *ngFor="let dat of data">
+    <h2>{{dat.name}}</h2>
+    <h4>{{dat.email}}</h4>
+    <h4>{{dat.phone}}</h4>
+
+    <div class="user-group">
+      <h3>Compañía</h3>
+      <p><strong>Nombre:</strong> <span id="company-name">    {{dat.company.name}}</span></p>
+      <p><strong>Frase de Captura:</strong> <span id="catch-phrase">{{dat.company.catchPhrase}}</span></p>
+      <p><strong>BS:</strong> <span id="bs">{{dat.company.bs}}</span></p>
+    </div>
+    <div class="user-group">
+      <h3>Dirección</h3>
+      <p><strong>Calle:</strong> <span id="street">{{dat.address.street}}</span></p>
+      <p><strong>Suite:</strong> <span id="suite">{{dat.address.suite}}</span></p>
+      <p><strong>Ciudad:</strong> <span id="city">{{dat.address.city}}</span></p>
+      <p><strong>Código Postal:</strong> <span id="zipcode">{{dat.address.zipcode}}</span></p>
+      <p><strong>Latitud:</strong> <span id="latitude">{{dat.address.geo.lat}}</span></p>
+      <p><strong>Longitud:</strong> <span id="longitude">{{dat.address.geo.lng}}</span></p>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div>Loading...</div>
+</ng-template>
